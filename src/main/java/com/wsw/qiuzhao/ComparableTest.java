@@ -24,7 +24,7 @@ public class ComparableTest {
 }
 
 @Data
-class Person implements Comparable {
+class Person implements Comparable<Person> {
     private String name;
     private int age;
 
@@ -34,7 +34,12 @@ class Person implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Person o) {
+        if (this.age > o.getAge()){
+            return 1;
+        }else if (this.age < o.getAge()){
+            return -1;
+        }
+        return age;
     }
 }
